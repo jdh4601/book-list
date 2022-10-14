@@ -1,0 +1,18 @@
+.btn-container {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.btn-container .add-book {
+  width: 100%;
+  margin-right: 10px;
+}
+
+.btn-container .delete-value {
+  width: 100%;
+  margin-left: 10px;
+  background-color: rgb(255, 91, 91);
+  border-style: none;
+}

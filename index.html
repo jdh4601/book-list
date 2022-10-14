@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./bootstrap.css">
+  <link rel="stylesheet" href="style.css">
+  <title>Book List</title>
+</head>
+<body>
+  <div class="container">
+    <h1 class="display-5 text-center lh-lg mt-3">
+      <i class="fa-solid fa-book-open"></i>
+      My<span class="text-primary">Book</span>List
+    </h1>
+    <form id="book-form">
+      <div class="form-group">
+        <label for="title" class="fs-5 mt-3">Title</label>
+        <input type="text" id="title" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="author" class="fs-5 mt-3">Author</label>
+        <input type="text" id="author" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="isbn" class="fs-5 mt-3">ISBN#</label>
+        <input type="text" id="isbn" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="date" class="fs-5 mt-3">Date</label>
+        <input type="date" class="form-control" id="date" value="2022-10-14" min="2021-01-01" max="2022-10-30">
+      </div>
+      <div class="btn-container">
+        <input type="submit" value="Add book" class="add-book btn btn-primary btn-block shadow p-3 mb-4">
+        <input type="button" value="Delete input" class="delete-value btn btn-primary btn-block shadow p-3 mb-4">
+      </div>
+    </form>
+
+    <table class="table table-stripped">
+      <thead>
+          <th>Title</th>
+          <th>Author</th>
+          <th>ISBN</th>
+          <th>Date</th>
+          <th>Delete</th>
+      </thead>
+      <tbody id="book-list">
+
+      </tbody>
+    </table>
+  </div>
+  <script src="./script.js"></script>
+  <script src="https://kit.fontawesome.com/b5412c1e97.js" crossorigin="anonymous"></script>
+</body>
+</html>
