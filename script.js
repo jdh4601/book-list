@@ -59,6 +59,7 @@ const showAlert = (message, className) => {
 
 // event3: Add books
 const bookForm = document.querySelector('#book-form');
+let inputBookInfo;
 
 const submitNewInput = event => {
   event.preventDefault();
@@ -68,12 +69,12 @@ const submitNewInput = event => {
   const isbn = document.querySelector('#isbn').value;
   const date = document.querySelector('#date').value;
   // Validate
-  if (title === '' || author === '') {
+  if (title === '' || author === '' || isbn === '') {
     showAlert('Fill the all fieds!', 'danger');
   } else {
     showAlert('Succeed!', 'success');
     // Input value
-    const inputBookInfo = {
+    inputBookInfo = {
       title: title,
       author: author,
       isbn: isbn,
@@ -103,7 +104,45 @@ const bookList = document.querySelector('#book-list');
 const deleteBooks = element => {
   if (element.classList.contains('delete')) {
     element.parentElement.parentElement.remove();
+    showAlert('Book removed!', 'success');
   }
+  removeBook(element.target.parentElement.previousElementSibling.textContent);
 };
 
 bookList.addEventListener('click', deleteBooks);
+
+// Handle store
+// 1. get books storage
+let books = [];
+
+const getBooks = () => {
+  if (localStorage.getItem('books') === null) {
+    books = [];
+  } else {
+    books = JSON.parse(localStorage.getItem('books'));
+  }
+};
+
+// 2. add book to storage
+const addBook = book => {
+  books.push(book);
+  localStorage.setItem('books', JSON.stringify(books));
+};
+
+addBook(inputBookInfo);
+
+// 3. remove book in storage
+const removeBook = isbn => {
+  books.forEach((book, index) => {
+    if (book.isbn === isbn) {
+      books.splice(index, 1);
+    }
+  });
+
+  localStorage.setItem('books', JSON.stringify(books));
+};
+
+// 4. Show the data in storage on the screen
+const showBook = () => {
+  localStorage.getItem('books');
+};
