@@ -9,6 +9,7 @@ It's book list using only vanilla javascript(not using js libraray).
 - Add book list
 - Clear input values
 - Remove books data using classList
+- Store and remove data in localStorage
 
 ## Tech Stack
 - vanilla js
